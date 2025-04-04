@@ -6,7 +6,8 @@ const app = express()
 app.use(express.json())
 app.use(
   cors({
-    origin: '*'
+    origin: '*',
+    methods: ['GET', 'POST', 'DELETE']
   })
 )
 
@@ -22,7 +23,7 @@ const generateShortUrl = () => {
   return shortUrl
 }
 
-app.get('/health', async (req, res) => {
+app.get('/', async (req, res) => {
   res.send('Server is running')
 })
 
